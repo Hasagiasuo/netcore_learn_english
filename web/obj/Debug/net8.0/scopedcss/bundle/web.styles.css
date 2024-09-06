@@ -3,64 +3,47 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand[b-vpkz4e1jaw] {
-    white-space: nowrap; /* Забороняє переноси */
-    text-align: center;
-    font-size: 1.5rem; /* Збільшимо розмір шрифту */
-    font-weight: bold; /* Додамо жирність шрифту */
-    color: #ff5722; /* Змінюємо колір бренду на яскравіший */
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
 }
-
 
 a[b-vpkz4e1jaw] {
-    color: #0077cc;
-    transition: color 0.3s ease-in-out;
+  color: #0077cc;
 }
-
-    a:hover[b-vpkz4e1jaw] {
-        color: #ff9800; /* Змінюємо колір при наведенні */
-    }
 
 .btn-primary[b-vpkz4e1jaw] {
-    color: #fff;
-    background-color: #ff5722; /* Змінимо колір на більш яскравий */
-    border-color: #e64a19;
-    border-radius: 5px; /* Додамо округлість країв */
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
 }
-
-    .btn-primary:hover[b-vpkz4e1jaw] {
-        background-color: #e64a19; /* Темніший колір при наведенні */
-        border-color: #d84315;
-    }
-
 
 .nav-pills .nav-link.active[b-vpkz4e1jaw], .nav-pills .show > .nav-link[b-vpkz4e1jaw] {
-    color: #fff;
-    background-color: #ff9800; /* Зміна кольору на яскравий оранжевий */
-    border-color: #e64a19;
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
 }
-
 
 .border-top[b-vpkz4e1jaw] {
-    border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
 }
-
 .border-bottom[b-vpkz4e1jaw] {
-    border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow[b-vpkz4e1jaw] {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy[b-vpkz4e1jaw] {
-    font-size: 1rem;
-    line-height: inherit;
+  font-size: 1rem;
+  line-height: inherit;
 }
 
 .footer[b-vpkz4e1jaw] {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
 }

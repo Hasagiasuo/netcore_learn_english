@@ -149,12 +149,42 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-
     public IActionResult Index()
     {
         return View();
     }
 
+<<<<<<< HEAD
+    public async Task<IActionResult> Colors()
+    {
+        // Path to the text file (adjust the path as needed)
+        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "worlds/colors.txt");
+
+        // Read the file asynchronously
+        var fileContent = await System.IO.File.ReadAllTextAsync(filePath);
+
+        // Pass the content to the view
+        return View("Colors", fileContent);
+        //return View();
+    }
+
+    public IActionResult Weather()
+    {
+        return View();
+    }
+
+    public IActionResult Fruits()
+    {
+        return View();
+    }
+
+    public IActionResult Animals()
+    {
+        return View();
+    }
+
+=======
+>>>>>>> 3641aff8edc5592d3aa257981f1726ca350b2089
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
