@@ -1,15 +1,22 @@
+using hackador4.Services;
+using Telegram.Bot;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddHostedService<WebhookConfig>();
+builder.Services.AddHttpClient("tgwebhook")
+    .AddTypedClient<ITelegramBotClient>(
+        httpClient => new TelegramBotClient("7505959570:AAEa2MtBT3f579qcsyqOTQcQ2AsYK5TqCGg", httpClient)
+    );
+builder.Services.AddScoped<HandleUpdate>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
-{
+{   
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
