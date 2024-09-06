@@ -1,5 +1,7 @@
 ﻿using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.ReplyMarkups;
+using Telegram.Bot.Types.Enums;
 
 namespace Telebot {
   public class TelebotMN() {
@@ -10,16 +12,55 @@ namespace Telebot {
       _bot.StartReceiving(EventHandler, ErrorHandler);
       Console.WriteLine("INFO: Bot starting..\nPress any key for closing");
       Console.ReadKey();
+      Console.WriteLine("INFO: Bot stoped!");
     }
-    public static Task EventHandler(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken) {
-      switch(update.Message.Text) {
+    public static Task EventHandler(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+    {
+      if (update.Type == UpdateType.Message && update.Message?.Text != null) {
+        switch (update.Message.Text) {
         case "/start":
           WelcomeMessage(update);
+          SendCategorySelection(update.Message.Chat.Id);
           break;
-        default:
-         break;
+        }
+      } else if (update.Type == UpdateType.CallbackQuery) {
+        var callbackData = update.CallbackQuery.Data;
+        switch (callbackData) {
+        case "animals":
+          HandleAnimalsCategory(update.CallbackQuery);
+          break;
+        case "colors":
+          HandleColorsCategory(update.CallbackQuery);
+          break;
+        case "fruits":
+          HandleFruitsCategory(update.CallbackQuery);
+          break;
+        case "weather":
+          HandleWeatherCategory(update.CallbackQuery);
+          break;
+        }
       }
       return Task.CompletedTask;
+    }
+    private static async void SendCategorySelection(long chatId)
+    {
+      InlineKeyboardMarkup classWordsKeyboard = new InlineKeyboardMarkup(
+        new InlineKeyboardButton[][]
+        {
+          new InlineKeyboardButton[]
+          {
+            InlineKeyboardButton.WithCallbackData("Тварини", "animals"),
+            InlineKeyboardButton.WithCallbackData("Кольри", "colors")
+          },
+          new InlineKeyboardButton[]
+          {
+            InlineKeyboardButton.WithCallbackData("Фрукти", "fruits"),
+            InlineKeyboardButton.WithCallbackData("Погода", "weather")
+          }
+        }
+      );
+
+      await _bot.SendTextMessageAsync(chatId, "Оберіть категорію для навчання", replyMarkup: classWordsKeyboard);
     }
     private static Task ErrorHandler(ITelegramBotClient botClient, Exception error, CancellationToken cancellationToken) {
       Console.WriteLine($"ERROR: {error.ToString()}");
@@ -39,6 +80,18 @@ namespace Telebot {
         "'Magic Words Adventure' – це не просто гра, а справжня магічна подорож у світ англійських слів! Вивчайте англійську легко та весело! \U0001F308 \u2728"
       );
       return Task.CompletedTask;
+    }
+    private static async void HandleAnimalsCategory(CallbackQuery callbackQuery) {
+      await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Тварини 🐶");
+    }
+    private static async void HandleColorsCategory(CallbackQuery callbackQuery) {
+      await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Кольори 🌈");
+        }
+    private static async void HandleFruitsCategory(CallbackQuery callbackQuery) {
+      await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Фрукти 🍎");
+        }
+    private static async void HandleWeatherCategory(CallbackQuery callbackQuery) {
+      await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Погода ☀️");
     }
   }
 }
