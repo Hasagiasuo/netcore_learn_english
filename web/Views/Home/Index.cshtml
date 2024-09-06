@@ -1,8 +1,24 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Admin Panel";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="container text-center">
+    <h1 style="margin-top: 20px; margin-bottom: 100px;">Admin Panel <hr class="my-4"></h1>
+   
+
+    <div class="row">
+        <div class="col">
+            <a href="/home/Fruits" class="btn btn-primary">Fruits</a>
+        </div>
+        <div class="col">
+            <a href="/home/Weather" class="btn btn-primary">Weather</a>
+        </div>
+        <div class="col">
+            <a href="/home/Colors" class="btn btn-primary">Colors</a>
+        </div>
+        <div class="col">
+            <a href="/home/Animals" class="btn btn-primary">Animals</a>
+        </div>
+    </div>
 </div>

@@ -18,7 +18,22 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult Colors()
+    {
+        return View();
+    }
+
+    public IActionResult Weather()
+    {
+        return View();
+    }
+
+    public IActionResult Fruits()
+    {
+        return View();
+    }
+
+    public IActionResult Animals()
     {
         return View();
     }
