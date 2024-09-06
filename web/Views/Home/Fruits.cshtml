@@ -1,7 +1,23 @@
-﻿
+﻿@model string[]
 @{
     ViewData["Title"] = "Fruits";
 }
 
-<h1>Fruits dictionary:</h1>
-<hr class="my-4">
+<h2>Fruits</h2>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+<form method="post" asp-action="AddFruit">
+    <input type="text" name="newFruit" placeholder="Enter new fruit" />
+    <button type="submit">Add Fruit</button>
+</form>
+
+<form method="post" asp-action="DeleteFruit">
+    <input type="text" name="fruitToDelete" placeholder="Enter fruit to delete" />
+    <button type="submit">Delete Fruit</button>
+</form>
