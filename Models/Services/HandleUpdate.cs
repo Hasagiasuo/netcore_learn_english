@@ -18,13 +18,23 @@ namespace hackador4.Services {
       };
     }
     private async object BotReceived(Message message) {
-      await _bot_client.SendTextMessageAsync(message.Chat.Id, )
+      await _bot_client.SendTextMessageAsync(message.Chat.Id, message.Text);
+      try {
+        await handler
+      } catch (Exception ex) {
+        await HandleErrorAsync(ex);
+      }
     }
-    private object BotCallbackQuery(CallbackQuery query) {
-
+    private async Task BotCallbackQuery(CallbackQuery query) {
+      _bot_client.SendTextMessageAsync(query.Message.Chat.Id, $"{query.Data}");
     }
     private object BotUnknownCallback(Update update) {
-
+      _logger.LogInformation($"Undefined types: {update.Type}!");
+      return Task.CompletedTask;
+    }
+    public Task HandleErrorAsync(Exception ex) {
+      _logger.LogInformation($"Error: {ex.ToString()}");
+      return Task.CompletedTask;
     }
   }
 }
