@@ -12,15 +12,22 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-
     public IActionResult Index()
     {
         return View();
     }
 
-    public IActionResult Colors()
+    public async Task<IActionResult> Colors()
     {
-        return View();
+        // Path to the text file (adjust the path as needed)
+        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "worlds/colors.txt");
+
+        // Read the file asynchronously
+        var fileContent = await System.IO.File.ReadAllTextAsync(filePath);
+
+        // Pass the content to the view
+        return View("Colors", fileContent);
+        //return View();
     }
 
     public IActionResult Weather()
