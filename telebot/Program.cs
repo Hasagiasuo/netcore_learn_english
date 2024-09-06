@@ -5,6 +5,8 @@ using Telegram.Bot.Types.Enums;
 
 namespace Telebot {
   public class TelebotMN() {
+    private static List<List<string>> _currentData;
+    private static StreamReader rd;
     private static TelegramBotClient _bot;
     public async static Task Main() {
       _bot =  new TelegramBotClient("7505959570:AAEa2MtBT3f579qcsyqOTQcQ2AsYK5TqCGg");
@@ -38,6 +40,9 @@ namespace Telebot {
         case "weather":
           HandleWeatherCategory(update.CallbackQuery);
           break;
+        case "next":
+          HandleNext(update.CallbackQuery);
+          break;
         }
       }
       return Task.CompletedTask;
@@ -59,8 +64,8 @@ namespace Telebot {
           }
         }
       );
+      await _bot.SendTextMessageAsync(chatId, "Оберіть категорію для навчання \U0001F920", replyMarkup: classWordsKeyboard);
 
-      await _bot.SendTextMessageAsync(chatId, "Оберіть категорію для навчання", replyMarkup: classWordsKeyboard);
     }
     private static Task ErrorHandler(ITelegramBotClient botClient, Exception error, CancellationToken cancellationToken) {
       Console.WriteLine($"ERROR: {error.ToString()}");
@@ -83,15 +88,42 @@ namespace Telebot {
     }
     private static async void HandleAnimalsCategory(CallbackQuery callbackQuery) {
       await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Тварини 🐶");
+      rd = new StreamReader("../web/assets/animals.txt");
+      sendNext(callbackQuery);
     }
     private static async void HandleColorsCategory(CallbackQuery callbackQuery) {
       await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Кольори 🌈");
-        }
+    }
     private static async void HandleFruitsCategory(CallbackQuery callbackQuery) {
       await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Фрукти 🍎");
-        }
+    }
     private static async void HandleWeatherCategory(CallbackQuery callbackQuery) {
       await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Погода ☀️");
+    }
+    private static async void HandleNext(CallbackQuery callbackQuery) {
+      sendNext(callbackQuery);
+    }
+    private static InlineKeyboardMarkup gen_keyboard() {
+      InlineKeyboardMarkup tmp_k = new InlineKeyboardMarkup(
+        new InlineKeyboardButton[][]
+        {
+          new InlineKeyboardButton[]
+          {
+            InlineKeyboardButton.WithUrl("Практика", "https://4690-77-47-238-26.ngrok-free.app"),
+            InlineKeyboardButton.WithCallbackData("Наступне", "next")
+          }
+        }
+      );
+      return tmp_k;
+    }
+    public static async void sendNext(CallbackQuery callbackQuery) {
+      string line = await rd.ReadLineAsync() ?? "";
+      if(line != "") {
+        string[] de_line = line.Split("|");
+        await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, $"{de_line[0]}\n{de_line[1]}", replyMarkup: gen_keyboard());
+      } else {
+        await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, $"Схоже ви вивчили всі можливі слова \U0001F914");
+      }
     }
   }
 }
