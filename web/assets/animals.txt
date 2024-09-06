@@ -1,4 +1,5 @@
-﻿das
-das
-asda|вфів
-фів|das
+﻿Cat|Кіт
+Dog|Собака
+Bird|Птах
+Fish|Риба
+Cow|Корова
