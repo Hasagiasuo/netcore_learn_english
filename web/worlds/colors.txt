@@ -1,7 +1,0 @@
-Red|Червоний
-Blue|Синій
-Green|Зелений
-Yellow|Жовтий
-Black|Чорний
-White|Білий
-Orange|Помаранчевий

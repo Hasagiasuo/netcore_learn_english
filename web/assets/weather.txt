@@ -1,1 +1,7 @@
-﻿
+﻿Sun|Сонце
+Rain|Дощ
+Snow|Сніг
+Wind|Вітрер
+Cloud|Хмара
+Fog|Туман
+Storm|Буря
