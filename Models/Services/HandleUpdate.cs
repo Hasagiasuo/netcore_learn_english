@@ -13,17 +13,17 @@ namespace hackador4.Services {
     public async Task EchoHandle(Update update) {
       var handler = update.Type switch {
         UpdateType.Message => BotReceived(update.Message),
-        UpdateType.CallbackQuery => BotReceived(update.CallbackQuery),
+        UpdateType.CallbackQuery => BotCallbackQuery(update.CallbackQuery),
         _ => BotUnknownCallback(update)
       };
-    }
-    private async object BotReceived(Message message) {
-      await _bot_client.SendTextMessageAsync(message.Chat.Id, message.Text);
       try {
         await handler
       } catch (Exception ex) {
         await HandleErrorAsync(ex);
       }
+    }
+    private async object BotReceived(Message message) {
+      await _bot_client.SendTextMessageAsync(message.Chat.Id, message.Text);
     }
     private async Task BotCallbackQuery(CallbackQuery query) {
       _bot_client.SendTextMessageAsync(query.Message.Chat.Id, $"{query.Data}");
