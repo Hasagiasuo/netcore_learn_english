@@ -1,6 +1,6 @@
 /* _content/web/Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Загальні стилі */
-body[b-vpkz4e1jaw] {
+body[b-geqq2yljpt] {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@ body[b-vpkz4e1jaw] {
 }
 
 /* Заголовки */
-h1[b-vpkz4e1jaw], h2[b-vpkz4e1jaw] {
+h1[b-geqq2yljpt], h2[b-geqq2yljpt] {
     color: #333;
     border-bottom: 2px solid #333;
     padding-bottom: 10px;
@@ -16,38 +16,38 @@ h1[b-vpkz4e1jaw], h2[b-vpkz4e1jaw] {
 }
 
 /* Навігаційні кнопки */
-.navbar[b-vpkz4e1jaw] {
+.navbar[b-geqq2yljpt] {
     background-color: #fff;
     border-bottom: 1px solid #e5e5e5;
     padding: 15px;
 }
 
-.navbar-brand[b-vpkz4e1jaw] {
+.navbar-brand[b-geqq2yljpt] {
     font-size: 1.5em;
     font-weight: bold;
     color: #333;
 }
 
-.navbar-toggler[b-vpkz4e1jaw] {
+.navbar-toggler[b-geqq2yljpt] {
     border: none;
 }
 
-.navbar-toggler-icon[b-vpkz4e1jaw] {
+.navbar-toggler-icon[b-geqq2yljpt] {
     background-image: url('/images/menu-icon.png'); /* Оновіть шлях, якщо потрібно */
 }
 
-.nav-link[b-vpkz4e1jaw] {
+.nav-link[b-geqq2yljpt] {
     color: #333;
 }
 
-    .nav-link:hover[b-vpkz4e1jaw] {
+    .nav-link:hover[b-geqq2yljpt] {
         color: #1b6ec2;
     }
-.nav-item[b-vpkz4e1jaw] {
+.nav-item[b-geqq2yljpt] {
     margin-right: 20px; /* Adjust the value as needed */
 }
 /* Основний контент */
-.container[b-vpkz4e1jaw] {
+.container[b-geqq2yljpt] {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -57,12 +57,12 @@ h1[b-vpkz4e1jaw], h2[b-vpkz4e1jaw] {
 }
 
 /* Список елементів */
-ul[b-vpkz4e1jaw] {
+ul[b-geqq2yljpt] {
     list-style-type: none;
     padding: 0;
 }
 
-li[b-vpkz4e1jaw] {
+li[b-geqq2yljpt] {
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 10px;
@@ -73,11 +73,11 @@ li[b-vpkz4e1jaw] {
 }
 
 /* Форми */
-form[b-vpkz4e1jaw] {
+form[b-geqq2yljpt] {
     margin-top: 20px;
 }
 
-input[type="text"][b-vpkz4e1jaw] {
+input[type="text"][b-geqq2yljpt] {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ddd;
@@ -85,7 +85,7 @@ input[type="text"][b-vpkz4e1jaw] {
     margin-right: 10px;
 }
 
-button[b-vpkz4e1jaw] {
+button[b-geqq2yljpt] {
     padding: 10px 15px;
     font-size: 16px;
     border: none;
@@ -95,12 +95,12 @@ button[b-vpkz4e1jaw] {
     cursor: pointer;
 }
 
-    button:hover[b-vpkz4e1jaw] {
+    button:hover[b-geqq2yljpt] {
         background-color: #555;
     }
 
 /* Футер */
-footer[b-vpkz4e1jaw] {
+footer[b-geqq2yljpt] {
     background-color: #f4f4f4;
     border-top: 1px solid #e5e5e5;
     padding: 15px 0;
