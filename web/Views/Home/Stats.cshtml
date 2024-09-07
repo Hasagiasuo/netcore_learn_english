@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Stats";
+}
+
+<h2>Word Learning Stats</h2>
+
+<div style="width: 300px; height: 300px;">
+    <canvas id="myPieChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('myPieChart').getContext('2d');
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Learned Words', 'Remaining Words'],
+            datasets: [{
+                data: [@ViewBag.LearnedPercentage, @ViewBag.RemainingPercentage],
+                backgroundColor: ['#33FF57', '#FF5733'], // Зелений для вивчених, червоний для невивчених
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // Вимикаємо збереження пропорцій
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>

@@ -3,3 +3,7 @@ Rain|Дощ
 Snow|Сніг
 Wind|Вітрер
 Cloud|Хмара
+<<<<<<< HEAD
+Fog|Туман
+Storm|Буря
+=======

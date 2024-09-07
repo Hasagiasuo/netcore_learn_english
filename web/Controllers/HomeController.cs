@@ -10,7 +10,25 @@ namespace web.Controllers;
 
 public class HomeController : Controller
 {
+
+    private readonly string _statFilePath = "stat/stat.txt"; // Path to your stat file
+
+    public IActionResult Stats()
+    {
+        // Read the stat.txt file
+        var learnedWords = System.IO.File.ReadAllLines(_statFilePath).Where(line => !string.IsNullOrWhiteSpace(line)).Count();
+        int totalWords = 20; // Total number of words
+        int learnedPercentage = (learnedWords * 100) / totalWords;
+        int remainingPercentage = 100 - learnedPercentage;
+
+        // Pass the data to the view using ViewBag
+        ViewBag.LearnedPercentage = learnedPercentage;
+        ViewBag.RemainingPercentage = remainingPercentage;
+
+        return View("Stats");
+    }
     private readonly string _basePath = "assets/";
+    private readonly string _basePathStat = "stat/";
 
     // Метод для перегляду файлу Animals
     public IActionResult Animals()
@@ -94,6 +112,7 @@ public class HomeController : Controller
         return RedirectToAction("Fruits");
     }
 
+
     public IActionResult Weather()
     {
         var data = ReadFile("weather.txt");
@@ -127,11 +146,18 @@ public class HomeController : Controller
         return System.IO.File.ReadAllLines(filePath, Encoding.UTF8);
     }
 
+
+    private string[] ReadStat(string fileName)
+    {
+        var filePath = Path.Combine(_basePathStat, fileName);
+        return System.IO.File.ReadAllLines(filePath, Encoding.UTF8);
+    }
+
     // Додавання в файл
     private void AppendToFile(string fileName, string content)
     {
         var filePath = Path.Combine(_basePath, fileName);
-        System.IO.File.AppendAllText(filePath, content + "\n", Encoding.UTF8);
+        System.IO.File.AppendAllText(filePath,  content + "\n", Encoding.UTF8);
     }
 
     // Видалення з файлу
@@ -149,6 +175,13 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
+
+    public IActionResult Game()
+    {
+        return View();
+    }
+
+
 
     public IActionResult Index()
     {

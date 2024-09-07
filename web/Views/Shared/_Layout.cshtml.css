@@ -42,7 +42,9 @@ h1, h2 {
     .nav-link:hover {
         color: #1b6ec2;
     }
-
+.nav-item {
+    margin-right: 20px; /* Adjust the value as needed */
+}
 /* Основний контент */
 .container {
     max-width: 1200px;

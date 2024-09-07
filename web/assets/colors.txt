@@ -3,3 +3,7 @@ Blue|Синій
 Green|Зелений
 Yellow|Жовтий
 Black|Чорний
+<<<<<<< HEAD
+White|Білий
+Orange|Помаранчевий
+=======

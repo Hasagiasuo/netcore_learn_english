@@ -42,7 +42,9 @@ h1[b-vpkz4e1jaw], h2[b-vpkz4e1jaw] {
     .nav-link:hover[b-vpkz4e1jaw] {
         color: #1b6ec2;
     }
-
+.nav-item[b-vpkz4e1jaw] {
+    margin-right: 20px; /* Adjust the value as needed */
+}
 /* Основний контент */
 .container[b-vpkz4e1jaw] {
     max-width: 1200px;
