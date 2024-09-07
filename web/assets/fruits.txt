@@ -3,3 +3,8 @@ Banana|Банан
 Orange|Апельсин
 Grape|Виноград
 Peach|Персик
+<<<<<<< HEAD
+Pear|Груша
+Mango|Манго
+=======
+>>>>>>> a33aecb2d9b88eca2139f3460c53005d482a41a8
