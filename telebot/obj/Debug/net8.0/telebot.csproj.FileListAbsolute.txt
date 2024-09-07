@@ -1,9 +1,3 @@
-/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.csproj.AssemblyReference.cache
-/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.GeneratedMSBuildEditorConfig.editorconfig
-/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.AssemblyInfoInputs.cache
-/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.AssemblyInfo.cs
-/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.csproj.CoreCompileInputs.cache
-/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.sourcelink.json
 /Users/dmitro/data/Code/hackador4/telebot/bin/Debug/net8.0/telebot
 /Users/dmitro/data/Code/hackador4/telebot/bin/Debug/net8.0/telebot.deps.json
 /Users/dmitro/data/Code/hackador4/telebot/bin/Debug/net8.0/telebot.runtimeconfig.json
@@ -11,28 +5,15 @@
 /Users/dmitro/data/Code/hackador4/telebot/bin/Debug/net8.0/telebot.pdb
 /Users/dmitro/data/Code/hackador4/telebot/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/dmitro/data/Code/hackador4/telebot/bin/Debug/net8.0/Telegram.Bot.dll
+/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.csproj.AssemblyReference.cache
+/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.AssemblyInfoInputs.cache
+/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.AssemblyInfo.cs
+/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.csproj.CoreCompileInputs.cache
+/Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.sourcelink.json
 /Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.csproj.CopyComplete
 /Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.dll
 /Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/refint/telebot.dll
 /Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.pdb
 /Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/telebot.genruntimeconfig.cache
 /Users/dmitro/data/Code/hackador4/telebot/obj/Debug/net8.0/ref/telebot.dll
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\bin\Debug\net8.0\telebot.exe
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\bin\Debug\net8.0\telebot.deps.json
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\bin\Debug\net8.0\telebot.runtimeconfig.json
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\bin\Debug\net8.0\telebot.dll
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\bin\Debug\net8.0\telebot.pdb
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\bin\Debug\net8.0\Telegram.Bot.dll
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\telebot.csproj.AssemblyReference.cache
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\telebot.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\telebot.AssemblyInfoInputs.cache
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\telebot.AssemblyInfo.cs
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\telebot.csproj.CoreCompileInputs.cache
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\telebot.sourcelink.json
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\telebot.csproj.Up2Date
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\telebot.dll
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\refint\telebot.dll
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\telebot.pdb
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\telebot.genruntimeconfig.cache
-C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\obj\Debug\net8.0\ref\telebot.dll

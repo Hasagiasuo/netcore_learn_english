@@ -3,11 +3,14 @@
 }
 
 <h2>Word Learning Stats</h2>
-<p>Total Words: @ViewBag.TotalWords</p> <!-- Виведення загальної кількості слів -->
-<!-- Canvas для діаграми -->
+<p>Total Words: @ViewBag.TotalWords</p> 
 <div style="width: 300px; height: 300px;">
     <canvas id="myPieChart"></canvas>
 </div>
+
+<form asp-action="ResetDatabase" method="post">
+    <button type="submit" class="btn btn-danger mt-3">Reset Database</button>
+</form>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -18,12 +21,12 @@
             labels: ['Learned Words', 'Remaining Words'],
             datasets: [{
                 data: [@ViewBag.LearnedPercentage, @ViewBag.RemainingPercentage],
-                backgroundColor: ['#33FF57', '#FF5733'], // Зелений для вивчених, червоний для невивчених
+                backgroundColor: ['#33FF57', '#FF5733'], 
             }]
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false, // Вимикаємо збереження пропорцій
+            maintainAspectRatio: false, 
             plugins: {
                 legend: {
                     position: 'top',

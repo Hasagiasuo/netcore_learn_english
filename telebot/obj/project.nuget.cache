@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "EocDDg/0bWs=",
+  "dgSpecHash": "7Khl7h7Pkojd0rQymtRWzM+S7kff6PttZlAavDvyiR79qKTpoMC1EkUcEHBQlBOwNdtFI/xWPeexfvkASVuPgA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\telebot\\telebot.csproj",
+  "projectFilePath": "/Users/dmitro/data/Code/hackador4/telebot/telebot.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\vb256\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\vb256\\.nuget\\packages\\telegram.bot\\19.0.0\\telegram.bot.19.0.0.nupkg.sha512"
+    "/Users/dmitro/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/Users/dmitro/.nuget/packages/telegram.bot/19.0.0/telegram.bot.19.0.0.nupkg.sha512"
   ],
   "logs": []
 }

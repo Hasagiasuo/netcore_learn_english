@@ -11,44 +11,52 @@ namespace web.Controllers;
 public class HomeController : Controller
 {
 
-    private readonly string _assetsFolderPath = "assets"; // Шлях до папки assets
-    private readonly string _statFilePath = "stat/stat.txt"; // Шлях до stat.txt
+    private readonly string _assetsFolderPath = "assets"; 
+    private readonly string _statFilePath = "stat/stat.txt";
 
     public IActionResult Stats()
     {
-        // Підраховуємо кількість рядків у всіх файлах папки assets
+        
         var totalWords = Directory.GetFiles(_assetsFolderPath, "*.txt")
                                   .SelectMany(file => System.IO.File.ReadAllLines(file))
                                   .Where(line => !string.IsNullOrWhiteSpace(line))
                                   .Count();
 
-        // Читаємо кількість вивчених слів зі stat.txt
+        
         var learnedWords = System.IO.File.ReadAllLines(_statFilePath)
                                          .Where(line => !string.IsNullOrWhiteSpace(line))
                                          .Count();
 
-        // Розрахунок відсотків
+        
         int learnedPercentage = (totalWords > 0) ? (learnedWords * 100) / totalWords : 0;
         int remainingPercentage = 100 - learnedPercentage;
 
-        // Передаємо дані до View
+        
         ViewBag.LearnedPercentage = learnedPercentage;
         ViewBag.RemainingPercentage = remainingPercentage;
-        ViewBag.TotalWords = totalWords; // Можна передати загальну кількість для відображення
+        ViewBag.TotalWords = totalWords; 
 
         return View("Stats");
+    }
+
+    
+    [HttpPost]
+    public IActionResult ResetDatabase()
+    {
+        System.IO.File.WriteAllText(_statFilePath, string.Empty); 
+        return RedirectToAction("Stats"); 
     }
     private readonly string _basePath = "assets/";
     private readonly string _basePathStat = "stat/";
 
-    // Метод для перегляду файлу Animals
+    
     public IActionResult Animals()
     {
         var data = ReadFile("animals.txt");
         return View("Animals", data);
     }
 
-    // Метод для додавання запису в Animals
+    
     [HttpPost]
     public IActionResult AddAnimal(string newAnimal)
     {
@@ -59,7 +67,7 @@ public class HomeController : Controller
         return RedirectToAction("Animals");
     }
 
-    // Метод для видалення запису з Animals
+    
     [HttpPost]
     public IActionResult DeleteAnimal(string animalToDelete)
     {
@@ -70,7 +78,7 @@ public class HomeController : Controller
         return RedirectToAction("Animals");
     }
 
-    // Методи для інших категорій (Colors, Fruits, Weather)
+    
     public IActionResult Colors()
     {
         var data = ReadFile("colors.txt");
@@ -150,7 +158,7 @@ public class HomeController : Controller
         return RedirectToAction("Weather");
     }
 
-    // Читання файлу
+   
     private string[] ReadFile(string fileName)
     {
         var filePath = Path.Combine(_basePath, fileName);
@@ -164,14 +172,14 @@ public class HomeController : Controller
         return System.IO.File.ReadAllLines(filePath, Encoding.UTF8);
     }
 
-    // Додавання в файл
+    
     private void AppendToFile(string fileName, string content)
     {
         var filePath = Path.Combine(_basePath, fileName);
         System.IO.File.AppendAllText(filePath,  content + "\n", Encoding.UTF8);
     }
 
-    // Видалення з файлу
+    
     private void DeleteFromFile(string fileName, string content)
     {
         var filePath = Path.Combine(_basePath, fileName);
