@@ -1,5 +1,4 @@
 let health = 5;
-let wordToCollect = '';
 let currentLetterIndex = 0;
 let generationCount = 0;
 let gameContainer = document.querySelector('.game-container');
@@ -13,21 +12,41 @@ let restartBtn = document.getElementById('restart-btn');
 let wordInput = document.getElementById('word-input');
 let loaderWrapper = document.querySelector('.loader-wrapper');
 
-function set_target_word(new_word) {
-    wordToCollect = new_word;
-    console.log("change");
-    document.getElementById("word-input").value = new_word;
-}
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('currentword.txt')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(text => {
+            // Отримуємо першу строку з файлу
+            let wordToCollect = text.split('\n')[0];
+            
+            // Встановлюємо значення вмісту елемента <p id="word-input">
+            let wordInputElement = document.getElementById('word-input');
+            if (wordInputElement) {
+                wordInputElement.textContent = wordToCollect;
+            }
+
+            // Додатково, можна використовувати `wordToCollect` далі у коді
+            console.log('Word to Collect:', wordToCollect);
+        })
+        .catch(error => {
+            console.error('Error fetching the file:', error);
+        });
+});
 
 // Функція для отримання слова з сервера
 async function fetchWord() {
     try {
-        lwordToCollect = new_word;
+        wordToCollect = new_word;
         console.log("change");
-        document.getElementById("word-input").value = new_word;
+        document.getElementById("word-input").textContent = new_word;
     } catch (error) {
         console.error('Помилка завантаження слова:', error);
-        return 'apple';
+        return wordToCollect;
     }
 }
 
@@ -129,6 +148,23 @@ function createObject() {
     }
 }
 
+// Додайте подію на клік, яка запускає анімацію атаки
+document.addEventListener('click', () => {
+    // Запускаємо анімацію атаки, якщо персонаж не атакує
+    if (!character.classList.contains('attacking') && !character.classList.contains('dying')) {
+        character.classList.remove('standing'); // Прибираємо клас стояння
+        character.classList.add('attacking');   // Додаємо клас атаки
+
+        // Після завершення атаки повертаємо персонажа до анімації стояння
+        setTimeout(() => {
+            if (!character.classList.contains('dying')) { // Переконаємось, що персонаж не помер
+                character.classList.remove('attacking');
+                character.classList.add('standing');
+            }
+        }, 500); // Тривалість анімації атаки
+    }
+});
+
 // Оновлення відображення здоров'я і очок
 function updateHealth() {
     healthDisplay.textContent = `Здоров'я: ${health}`;
@@ -144,6 +180,7 @@ function updateScore() {
 function gameOver(won) {
     gameContainer.style.display = 'none';
     endScreen.style.display = 'flex';
+    
 
     if (won) {let health = 5;
         let wordToCollect = '';
@@ -159,48 +196,6 @@ function gameOver(won) {
         let restartBtn = document.getElementById('restart-btn');
         let fileInput = document.getElementById('file-input');
         let loaderWrapper = document.querySelector('.loader-wrapper');
-        
-        // Функція для завантаження слова з локального файлу
-        function loadWordFromFile(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const content = e.target.result.trim();
-                    if (content.length > 0) {
-                        resolve(content);
-                    } else {
-                        reject('Файл порожній');
-                    }
-                };
-                reader.onerror = function() {
-                    reject('Помилка читання файлу');
-                };
-                reader.readAsText(file);
-            });
-        }
-        
-        // Функція для старту гри
-        startBtn.addEventListener('click', async () => {
-            const file = fileInput.files[0];
-            if (!file) {
-                alert('Будь ласка, виберіть файл.');
-                return;
-            }
-        
-            try {
-                wordToCollect = await loadWordFromFile(file);
-                if (wordToCollect.length === 0) {
-                    alert('Файл порожній.');
-                    return;
-                }
-                resetGame();
-                loaderWrapper.style.display = 'none';
-                document.querySelector('.container').style.display = 'flex';
-                startGame();
-            } catch (error) {
-                alert('Помилка: ' + error);
-            }
-        });
         
         // Функція для рестарту гри
         restartBtn.addEventListener('click', () => {

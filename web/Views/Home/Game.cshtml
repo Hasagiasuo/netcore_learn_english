@@ -1,24 +1,23 @@
-﻿@{
+﻿@model string
+@{
     Layout = null; 
     ViewData["Title"] = "Magic Words Adventure";
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magic Words Adventure</title>
+    <link rel="stylesheet" href="~/css/style.css">
 
-   
-    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
-
-  
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <script>wordToCollect = "@Model";</script>
     <div class="loader-wrapper">
         <div class="loader">loading...</div>
     </div>
@@ -27,24 +26,24 @@
         <div class="side-text">Magic Words Adventure</div>
         <div class="game-area">
             <div class="start-screen">
-                <h1>Collect the word</h1>
+                <h1>Збери слово</h1>
                 <div class="word-input-container">
-                    <input type="text" id="word-input" value="Apple" size="6">
+                    <p id="word-input">@Model</p>
                 </div>
                 <div class="start-btn-container">
-                    <button id="start-btn">Start</button>
+                    <button id="start-btn">Старт</button>
                 </div>
             </div>
 
             <div class="game-container" style="display:none;">
-                <div id="character"></div>
-                <div id="health">Health: 5</div>
-                <div id="score">Word: </div>
+                <div id="character" class="standing"></div>
+                <div id="health">Здоров'я: 5</div>
+                <div id="score">Слово: </div>
             </div>
 
             <div class="end-screen" style="display:none;">
                 <h1 id="end-message"></h1>
-                <button id="restart-btn">Restart</button>
+                <button id="restart-btn">Заново</button>
             </div>
 
             <div class="pause-screen" style="display:none;">
@@ -55,12 +54,6 @@
         <div class="side-text">Magic Words Adventure</div>
     </div>
 
-   
-    <script src="~/js/game.js" asp-append-version="true"></script>
-
-   
-    <script>
-        set_target_word("apple");
-    </script>
+    <script src="~/js/game.js"></script>
 </body>
 </html>

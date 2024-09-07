@@ -234,10 +234,14 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-
+// /Users/dmitro/data/Code/hackador4/web/curr/current_word.txt
     public IActionResult Game()
     {
-        return View();
+        string target;
+        using(var wr = new StreamReader("./curr/current_word.txt")) {
+            target = wr.ReadLine() ?? "DOTNET";
+        }
+        return View("Game", target);
     }
 
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("telebot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7b1e7db5146786dc3e8f3457dddfcde23185e61")]
 [assembly: System.Reflection.AssemblyProductAttribute("telebot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("telebot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

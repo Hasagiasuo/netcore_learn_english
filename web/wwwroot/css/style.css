@@ -36,11 +36,22 @@ body {
 /* Контейнер гри */
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     height: 100vh;
     width: 100vw;
     text-align: center;
+
+    background: linear-gradient(45deg, #ff6f61, #d0e1f9);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+}
+
+/* Анімація градієнту */
+@keyframes gradient-animation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
 
 /* Сторонні елементи з назвою гри */
@@ -51,6 +62,11 @@ body {
     writing-mode: vertical-rl;
     text-orientation: upright;
     margin: 0 20px;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
 }
 
 .start-screen {
@@ -78,7 +94,7 @@ body {
 
     font-family: "Archivo", sans-serif;
     font-weight: 600;
-    font-size: 28pt;
+    font-size: 36pt;
     font-style: normal;
     text-transform: uppercase;
 }
@@ -88,9 +104,10 @@ body {
     justify-content: center;
 }
 
-#start-btn {
+#start-btn, #restart-btn, #resume-btn {
     background-color: #98139c;
     border: none;
+    border-radius: 10px;
     color: white;
     padding: 15px 32px;
     text-align: center;
@@ -101,6 +118,64 @@ body {
     font-weight: 600;
     font-size: 14pt;
     font-style: normal;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('gamebg.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#health, #score {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+}
+
+#character {
+    width: 96px;
+    height: 96px;
+    position: absolute;
+    bottom: 0;
+    background: url('fly.png');
+    background-repeat: no-repeat;
+}
+
+#character.standing {
+    animation: standing-animation 1s steps(6) infinite; /* Анімація стояння */
+}
+
+#character.attacking {
+    background-image: url('attack.png');
+    background-repeat: no-repeat;
+    animation: attack-animation 0.5s steps(6) forwards; /* Атака */
+}
+
+#character.dying {
+    background-image: url('death.png');
+    background-repeat: no-repeat;
+    animation: dying-animation 1s steps(6) forwards; /* Смерть */
+}
+
+@keyframes standing-animation {
+    to { background-position: -576px; }
+}
+
+@keyframes attack-animation {
+    to { background-position: -576px; }
+}
+
+@keyframes dying-animation {
+    to { background-position: -576px; }
 }
 
 /* Адаптація для великого екрану (ширше за 9:16) */
@@ -129,7 +204,7 @@ body {
 }
 
 /* Стилі для гри */
-.game-container, .end-screen, .pause-screen {
+.end-screen, .pause-screen {
     position: absolute;
     top: 0;
     left: 0;
@@ -141,25 +216,20 @@ body {
     align-items: center;
 }
 
-#character {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: #584b44;
-    bottom: 10px;
-    left: calc(50% - 25px);
+#end-message {
+    padding: 4rem;
 }
 
 .object {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     color: #fff;
     background-color: green;
 }

@@ -5,6 +5,22 @@
       "PackagePath": "staticwebassets/web.bundle.scp.css"
     },
     {
+      "Id": "/Users/dmitro/data/Code/hackador4/web/wwwroot/css/attack.png",
+      "PackagePath": "staticwebassets/css/attack.png"
+    },
+    {
+      "Id": "/Users/dmitro/data/Code/hackador4/web/wwwroot/css/death.png",
+      "PackagePath": "staticwebassets/css/death.png"
+    },
+    {
+      "Id": "/Users/dmitro/data/Code/hackador4/web/wwwroot/css/fly.png",
+      "PackagePath": "staticwebassets/css/fly.png"
+    },
+    {
+      "Id": "/Users/dmitro/data/Code/hackador4/web/wwwroot/css/gamebg.jpeg",
+      "PackagePath": "staticwebassets/css/gamebg.jpeg"
+    },
+    {
       "Id": "/Users/dmitro/data/Code/hackador4/web/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
