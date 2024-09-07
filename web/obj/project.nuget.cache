@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+wyTFAP+mP4=",
+  "dgSpecHash": "ZyEx0gzgo2I=",
   "success": true,
-  "projectFilePath": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\HACK\\hackton\\web\\web.csproj",
+  "projectFilePath": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vb256\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\vb256\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

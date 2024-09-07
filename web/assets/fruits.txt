@@ -1,1 +1,5 @@
-﻿
+﻿Apple|Яблуко
+Banana|Банан
+Orange|Апельсин
+Grape|Виноград
+Peach|Персик

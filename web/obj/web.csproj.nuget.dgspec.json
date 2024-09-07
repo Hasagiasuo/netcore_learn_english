@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\HACK\\hackton\\web\\web.csproj": {}
+    "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\HACK\\hackton\\web\\web.csproj": {
+    "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\HACK\\hackton\\web\\web.csproj",
+        "projectUniqueName": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\web.csproj",
         "projectName": "web",
-        "projectPath": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\HACK\\hackton\\web\\web.csproj",
+        "projectPath": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\web.csproj",
         "packagesPath": "C:\\Users\\vb256\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\HACK\\hackton\\web\\obj\\",
+        "outputPath": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vb256\\AppData\\Roaming\\NuGet\\NuGet.Config",
