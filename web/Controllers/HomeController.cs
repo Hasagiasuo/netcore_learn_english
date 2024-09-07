@@ -10,6 +10,7 @@ namespace web.Controllers;
 
 public class HomeController : Controller
 {
+<<<<<<< HEAD
 
     private readonly string _assetsFolderPath = "assets"; // Шлях до папки assets
     private readonly string _statFilePath = "stat/stat.txt"; // Шлях до stat.txt
@@ -38,6 +39,8 @@ public class HomeController : Controller
 
         return View("Stats");
     }
+=======
+>>>>>>> 831954173e2f7625e8e017d40708f5ce2854a136
     private readonly string _basePath = "assets/";
     private readonly string _basePathStat = "stat/";
 
@@ -121,6 +124,12 @@ public class HomeController : Controller
             DeleteFromFile("fruits.txt", fruitToDelete);
         }
         return RedirectToAction("Fruits");
+    }
+
+    public IActionResult Stats()
+    {
+        var data = ReadStat("stat.txt");
+        return View("Weather", data);
     }
 
 

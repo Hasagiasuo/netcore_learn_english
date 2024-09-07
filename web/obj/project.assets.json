@@ -6782,11 +6782,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\vb256\\.nuget\\packages\\": {}
+=======
+    "/Users/dmitro/.nuget/packages/": {}
+>>>>>>> 831954173e2f7625e8e017d40708f5ce2854a136
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\web.csproj",
       "projectName": "web",
       "projectPath": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\web.csproj",
@@ -6796,13 +6801,21 @@
       "configFilePaths": [
         "C:\\Users\\vb256\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+      "projectUniqueName": "/Users/dmitro/data/Code/hackador4/web/web.csproj",
+      "projectName": "web",
+      "projectPath": "/Users/dmitro/data/Code/hackador4/web/web.csproj",
+      "packagesPath": "/Users/dmitro/.nuget/packages/",
+      "outputPath": "/Users/dmitro/data/Code/hackador4/web/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/dmitro/.nuget/NuGet/NuGet.Config"
+>>>>>>> 831954173e2f7625e8e017d40708f5ce2854a136
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6815,11 +6828,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -6862,7 +6870,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
