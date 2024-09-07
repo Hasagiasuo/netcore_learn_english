@@ -23,7 +23,7 @@ namespace Telebot {
         switch (update.Message.Text) {
         case "/start":
           WelcomeMessage(update);
-          SendCategorySelection(update.Message.Chat.Id);
+          SendCategorySelection(update.Message.Chat.Id, null);
           break;
         }
       } else if (update.Type == UpdateType.CallbackQuery) {
@@ -44,11 +44,14 @@ namespace Telebot {
         case "next":
           HandleNext(update.CallbackQuery);
           break;
+        case "edit":
+          SendCategorySelection(update.CallbackQuery.Message.Chat.Id, null);
+          break;
         }
       }
       return Task.CompletedTask;
     }
-    private static async void SendCategorySelection(long chatId)
+    private static async void SendCategorySelection(long chatId, string? add_text)
     {
       InlineKeyboardMarkup classWordsKeyboard = new InlineKeyboardMarkup(
         new InlineKeyboardButton[][]
@@ -56,7 +59,7 @@ namespace Telebot {
           new InlineKeyboardButton[]
           {
             InlineKeyboardButton.WithCallbackData("Тварини", "animals"),
-            InlineKeyboardButton.WithCallbackData("Кольри", "colors")
+            InlineKeyboardButton.WithCallbackData("Кольори", "colors")
           },
           new InlineKeyboardButton[]
           {
@@ -65,8 +68,10 @@ namespace Telebot {
           }
         }
       );
-      await _bot.SendTextMessageAsync(chatId, "Оберіть категорію для навчання \U0001F920", replyMarkup: classWordsKeyboard);
-
+      if(add_text != null)
+        await _bot.SendTextMessageAsync(chatId, $"{add_text}\nОберіть категорію для навчання \U0001F920", replyMarkup: classWordsKeyboard);
+      else 
+        await _bot.SendTextMessageAsync(chatId, "Оберіть категорію для навчання \U0001F920", replyMarkup: classWordsKeyboard);
     }
     private static Task ErrorHandler(ITelegramBotClient botClient, Exception error, CancellationToken cancellationToken) {
       Console.WriteLine($"ERROR: {error.ToString()}");
@@ -116,8 +121,12 @@ namespace Telebot {
         {
           new InlineKeyboardButton[]
           {
-            InlineKeyboardButton.WithUrl("Практика", "https://4690-77-47-238-26.ngrok-free.app"),
+            InlineKeyboardButton.WithUrl("Практика", "https://4690-77-47-238-26.ngrok-free.app/home/Game"),
             InlineKeyboardButton.WithCallbackData("Наступне", "next")
+          },
+          new InlineKeyboardButton[] 
+          {
+            InlineKeyboardButton.WithCallbackData("Змінити категорію", "edit")
           }
         }
       );
@@ -127,14 +136,23 @@ namespace Telebot {
       string line = await rd.ReadLineAsync() ?? "";
       if(line != "") {
         string[] de_line = line.Split("|");
-        await using Stream stream = System.IO.File.OpenRead($"../web/img/{de_line[0]}.jfif");
+        using(var sw = new StreamWriter("../web/stat/stat.txt", true)) { await sw.WriteLineAsync(de_line[0]); }
+        // long curs_pos = rd.BaseStream.Position;
+        // string stat = await rd.ReadToEndAsync();
+        // foreach(string l_stat in stat.Split('\n')) {
+        //   string[] d_line = l_stat.Split("|");
+        //   if(d_line[0] == de_line[0]) return;
+        // }
+        // rd.BaseStream.Position = curs_pos;
+        // rd.DiscardBufferedData();
+        await using Stream stream = System.IO.File.OpenRead($"../web/img/{de_line[0].ToLower()}.jfif");
         await _bot.SendPhotoAsync(
           callbackQuery.Message.Chat.Id, 
           InputFile.FromStream(stream), 
           caption: $"{de_line[0]}\n{de_line[1]}", 
           replyMarkup: gen_keyboard());
       } else {
-        await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, $"Схоже ви вивчили всі можливі слова \U0001F914");
+        SendCategorySelection(callbackQuery.Message.Chat.Id, $"Схоже ви вивчили всі можливі слова цієї категорії \U0001F914");
       }
     }
   }
