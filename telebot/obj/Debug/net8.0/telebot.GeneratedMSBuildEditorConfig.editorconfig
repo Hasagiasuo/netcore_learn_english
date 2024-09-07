@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = telebot
-build_property.ProjectDir = /Users/dmitro/data/Code/hackador4/telebot/
+build_property.ProjectDir = C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\telebot\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

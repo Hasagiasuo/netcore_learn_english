@@ -3,6 +3,5 @@ Banana|Банан
 Orange|Апельсин
 Grape|Виноград
 Peach|Персик
-<<<<<<< HEAD
 Pear|Груша
 Mango|Манго

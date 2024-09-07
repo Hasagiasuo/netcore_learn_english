@@ -9,8 +9,16 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\wwwroot\\js\\game.js",
+      "PackagePath": "staticwebassets\\js\\game.js"
     },
     {
       "Id": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\wwwroot\\js\\site.js",

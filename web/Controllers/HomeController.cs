@@ -11,19 +11,30 @@ namespace web.Controllers;
 public class HomeController : Controller
 {
 
-    private readonly string _statFilePath = "stat/stat.txt"; // Path to your stat file
+    private readonly string _assetsFolderPath = "assets"; // Шлях до папки assets
+    private readonly string _statFilePath = "stat/stat.txt"; // Шлях до stat.txt
 
     public IActionResult Stats()
     {
-        // Read the stat.txt file
-        var learnedWords = System.IO.File.ReadAllLines(_statFilePath).Where(line => !string.IsNullOrWhiteSpace(line)).Count();
-        int totalWords = 20; // Total number of words
-        int learnedPercentage = (learnedWords * 100) / totalWords;
+        // Підраховуємо кількість рядків у всіх файлах папки assets
+        var totalWords = Directory.GetFiles(_assetsFolderPath, "*.txt")
+                                  .SelectMany(file => System.IO.File.ReadAllLines(file))
+                                  .Where(line => !string.IsNullOrWhiteSpace(line))
+                                  .Count();
+
+        // Читаємо кількість вивчених слів зі stat.txt
+        var learnedWords = System.IO.File.ReadAllLines(_statFilePath)
+                                         .Where(line => !string.IsNullOrWhiteSpace(line))
+                                         .Count();
+
+        // Розрахунок відсотків
+        int learnedPercentage = (totalWords > 0) ? (learnedWords * 100) / totalWords : 0;
         int remainingPercentage = 100 - learnedPercentage;
 
-        // Pass the data to the view using ViewBag
+        // Передаємо дані до View
         ViewBag.LearnedPercentage = learnedPercentage;
         ViewBag.RemainingPercentage = remainingPercentage;
+        ViewBag.TotalWords = totalWords; // Можна передати загальну кількість для відображення
 
         return View("Stats");
     }
