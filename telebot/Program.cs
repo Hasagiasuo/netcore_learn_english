@@ -121,7 +121,7 @@ namespace Telebot {
         {
           new InlineKeyboardButton[]
           {
-            InlineKeyboardButton.WithUrl("Практика", "https://794d-77-47-238-26.ngrok-free.app/home/Game"),
+            InlineKeyboardButton.WithUrl("Практика", "https://08c1-77-47-238-26.ngrok-free.app/home/Game"),
             InlineKeyboardButton.WithCallbackData("Наступне", "next")
           },
           new InlineKeyboardButton[] 
