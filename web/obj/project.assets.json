@@ -6782,41 +6782,19 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "/Users/dmitro/.nuget/packages/": {}
-=======
-    "C:\\Users\\Roman\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> 94ab69370ad1e7e9972b6a493d2c21cfae39fcd7
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "/Users/dmitro/data/Code/hackador4/web/web.csproj",
       "projectName": "web",
       "projectPath": "/Users/dmitro/data/Code/hackador4/web/web.csproj",
       "packagesPath": "/Users/dmitro/.nuget/packages/",
       "outputPath": "/Users/dmitro/data/Code/hackador4/web/obj/",
-=======
-      "projectUniqueName": "C:\\Users\\Roman\\Desktop\\x\\hackton\\web\\web.csproj",
-      "projectName": "web",
-      "projectPath": "C:\\Users\\Roman\\Desktop\\x\\hackton\\web\\web.csproj",
-      "packagesPath": "C:\\Users\\Roman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Roman\\Desktop\\x\\hackton\\web\\obj\\",
->>>>>>> 94ab69370ad1e7e9972b6a493d2c21cfae39fcd7
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-<<<<<<< HEAD
         "/Users/dmitro/.nuget/NuGet/NuGet.Config"
-=======
-        "C:\\Users\\Roman\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> 94ab69370ad1e7e9972b6a493d2c21cfae39fcd7
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -6879,5 +6857,13 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/dmitro/data/Code/hackador4/web/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "/Users/dmitro/data/Code/hackador4/web/web.csproj": {}
   },
   "projects": {
@@ -13,31 +12,9 @@
         "projectPath": "/Users/dmitro/data/Code/hackador4/web/web.csproj",
         "packagesPath": "/Users/dmitro/.nuget/packages/",
         "outputPath": "/Users/dmitro/data/Code/hackador4/web/obj/",
-=======
-    "C:\\Users\\Roman\\Desktop\\x\\hackton\\web\\web.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Roman\\Desktop\\x\\hackton\\web\\web.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Roman\\Desktop\\x\\hackton\\web\\web.csproj",
-        "projectName": "web",
-        "projectPath": "C:\\Users\\Roman\\Desktop\\x\\hackton\\web\\web.csproj",
-        "packagesPath": "C:\\Users\\Roman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Roman\\Desktop\\x\\hackton\\web\\obj\\",
->>>>>>> 94ab69370ad1e7e9972b6a493d2c21cfae39fcd7
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-<<<<<<< HEAD
           "/Users/dmitro/.nuget/NuGet/NuGet.Config"
-=======
-          "C:\\Users\\Roman\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> 94ab69370ad1e7e9972b6a493d2c21cfae39fcd7
         ],
         "originalTargetFrameworks": [
           "net8.0"
