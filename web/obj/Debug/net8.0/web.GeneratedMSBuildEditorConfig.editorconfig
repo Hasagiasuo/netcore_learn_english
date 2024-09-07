@@ -17,63 +17,63 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = web
 build_property.RootNamespace = web
-build_property.ProjectDir = /Users/dmitro/data/Code/hackador4/web/
+build_property.ProjectDir = C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\web\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/dmitro/data/Code/hackador4/web
+build_property.MSBuildProjectDirectory = C:\Users\vb256\OneDrive\Рабочий стол\.NET\hackton\web
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Home/Animals.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BbmltYWxzLmNzaHRtbA==
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Home/Animals.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbmltYWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Home/Colors.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Db2xvcnMuY3NodG1s
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Home/Colors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb2xvcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Home/Fruits.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9GcnVpdHMuY3NodG1s
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Home/Fruits.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGcnVpdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Home/Game.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HYW1lLmNzaHRtbA==
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Home/Game.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHYW1lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Home/ReadFile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9SZWFkRmlsZS5jc2h0bWw=
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Home/ReadFile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWFkRmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Home/Stats.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TdGF0cy5jc2h0bWw=
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Home/Stats.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdGF0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Home/Weather.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9XZWF0aGVyLmNzaHRtbA==
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Home/Weather.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxXZWF0aGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/dmitro/data/Code/hackador4/web/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-geqq2yljpt
+[C:/Users/vb256/OneDrive/Рабочий стол/.NET/hackton/web/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-vpkz4e1jaw

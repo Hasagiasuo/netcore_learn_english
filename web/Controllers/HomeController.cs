@@ -10,6 +10,34 @@ namespace web.Controllers;
 
 public class HomeController : Controller
 {
+
+    private readonly string _assetsFolderPath = "assets"; // Шлях до папки assets
+    private readonly string _statFilePath = "stat/stat.txt"; // Шлях до stat.txt
+
+    public IActionResult Stats()
+    {
+        // Підраховуємо кількість рядків у всіх файлах папки assets
+        var totalWords = Directory.GetFiles(_assetsFolderPath, "*.txt")
+                                  .SelectMany(file => System.IO.File.ReadAllLines(file))
+                                  .Where(line => !string.IsNullOrWhiteSpace(line))
+                                  .Count();
+
+        // Читаємо кількість вивчених слів зі stat.txt
+        var learnedWords = System.IO.File.ReadAllLines(_statFilePath)
+                                         .Where(line => !string.IsNullOrWhiteSpace(line))
+                                         .Count();
+
+        // Розрахунок відсотків
+        int learnedPercentage = (totalWords > 0) ? (learnedWords * 100) / totalWords : 0;
+        int remainingPercentage = 100 - learnedPercentage;
+
+        // Передаємо дані до View
+        ViewBag.LearnedPercentage = learnedPercentage;
+        ViewBag.RemainingPercentage = remainingPercentage;
+        ViewBag.TotalWords = totalWords; // Можна передати загальну кількість для відображення
+
+        return View("Stats");
+    }
     private readonly string _basePath = "assets/";
     private readonly string _basePathStat = "stat/";
 
@@ -93,12 +121,6 @@ public class HomeController : Controller
             DeleteFromFile("fruits.txt", fruitToDelete);
         }
         return RedirectToAction("Fruits");
-    }
-
-    public IActionResult Stats()
-    {
-        var data = ReadStat("stat.txt");
-        return View("Weather", data);
     }
 
 
