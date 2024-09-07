@@ -6782,19 +6782,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vb256\\.nuget\\packages\\": {}
+    "C:\\Users\\Roman\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\web.csproj",
+      "projectUniqueName": "C:\\Users\\Roman\\Desktop\\dsa\\hackton\\web\\web.csproj",
       "projectName": "web",
-      "projectPath": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\web.csproj",
-      "packagesPath": "C:\\Users\\vb256\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vb256\\OneDrive\\Рабочий стол\\.NET\\hackton\\web\\obj\\",
+      "projectPath": "C:\\Users\\Roman\\Desktop\\dsa\\hackton\\web\\web.csproj",
+      "packagesPath": "C:\\Users\\Roman\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Roman\\Desktop\\dsa\\hackton\\web\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\vb256\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Roman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
