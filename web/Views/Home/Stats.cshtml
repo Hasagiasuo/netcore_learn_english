@@ -3,10 +3,21 @@
 }
 
 <h2>Word Learning Stats</h2>
-<p>Total Words: @ViewBag.TotalWords</p> 
+
+
 <div style="width: 300px; height: 300px;">
     <canvas id="myPieChart"></canvas>
 </div>
+
+
+<h4>Learned words</h4>
+<ul>
+    @foreach (var action in ViewBag.LastActions)
+    {
+        <li>@action</li>
+    }
+</ul>
+
 
 <form asp-action="ResetDatabase" method="post">
     <button type="submit" class="btn btn-danger mt-3">Reset Database</button>
@@ -26,7 +37,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false, 
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     position: 'top',
