@@ -121,7 +121,7 @@ namespace Telebot {
         {
           new InlineKeyboardButton[]
           {
-            InlineKeyboardButton.WithUrl("Практика", "https://4690-77-47-238-26.ngrok-free.app/home/Game"),
+            InlineKeyboardButton.WithUrl("Практика", "https://794d-77-47-238-26.ngrok-free.app/home/Game"),
             InlineKeyboardButton.WithCallbackData("Наступне", "next")
           },
           new InlineKeyboardButton[] 
@@ -136,15 +136,13 @@ namespace Telebot {
       string line = await rd.ReadLineAsync() ?? "";
       if(line != "") {
         string[] de_line = line.Split("|");
+        using(var sr = new StreamReader("../web/stat/stat.txt")) {
+          string a_stat = await sr.ReadToEndAsync();
+          foreach(string l in a_stat.Split("\n")) {
+            if(l.Split("|")[0] == de_line[0]) sendNext(callbackQuery);
+          }
+        }
         using(var sw = new StreamWriter("../web/stat/stat.txt", true)) { await sw.WriteLineAsync(de_line[0]); }
-        // long curs_pos = rd.BaseStream.Position;
-        // string stat = await rd.ReadToEndAsync();
-        // foreach(string l_stat in stat.Split('\n')) {
-        //   string[] d_line = l_stat.Split("|");
-        //   if(d_line[0] == de_line[0]) return;
-        // }
-        // rd.BaseStream.Position = curs_pos;
-        // rd.DiscardBufferedData();
         await using Stream stream = System.IO.File.OpenRead($"../web/img/{de_line[0].ToLower()}.jfif");
         await _bot.SendPhotoAsync(
           callbackQuery.Message.Chat.Id, 
