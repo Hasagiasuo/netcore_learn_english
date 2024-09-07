@@ -241,48 +241,6 @@ public class HomeController : Controller
     }
 
 
-    [HttpPost]
-    public async Task<IActionResult> UploadFile(IFormFile file)
-    {
-        if (file != null && file.Length > 0)
-        {
-            // Validate file type
-            var allowedExtensions = new[] { ".jfif"};
-            var fileExtension = Path.GetExtension(file.FileName).ToLower();
-
-            if (!allowedExtensions.Contains(fileExtension))
-            {
-                ViewBag.Message = "Invalid file type!";
-                return View("Index");
-            }
-
-            // Define the file path
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "img", file.FileName);
-
-            try
-            {
-                // Save the file
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
-
-                ViewBag.Message = "File uploaded successfully!";
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions
-                ViewBag.Message = $"File upload failed: {ex.Message}";
-            }
-        }
-        else
-        {
-            ViewBag.Message = "No file selected!";
-        }
-
-        return View("Index");
-    }
-
 
     public IActionResult Index()
     {
