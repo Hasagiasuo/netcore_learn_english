@@ -11,6 +11,7 @@ namespace web.Controllers;
 public class HomeController : Controller
 {
     private readonly string _basePath = "assets/";
+    private readonly string _basePathStat = "stat/";
 
     // Метод для перегляду файлу Animals
     public IActionResult Animals()
@@ -94,6 +95,13 @@ public class HomeController : Controller
         return RedirectToAction("Fruits");
     }
 
+    public IActionResult Stats()
+    {
+        var data = ReadStat("stat.txt");
+        return View("Weather", data);
+    }
+
+
     public IActionResult Weather()
     {
         var data = ReadFile("weather.txt");
@@ -127,11 +135,18 @@ public class HomeController : Controller
         return System.IO.File.ReadAllLines(filePath, Encoding.UTF8);
     }
 
+
+    private string[] ReadStat(string fileName)
+    {
+        var filePath = Path.Combine(_basePathStat, fileName);
+        return System.IO.File.ReadAllLines(filePath, Encoding.UTF8);
+    }
+
     // Додавання в файл
     private void AppendToFile(string fileName, string content)
     {
         var filePath = Path.Combine(_basePath, fileName);
-        System.IO.File.AppendAllText(filePath, content + "\n", Encoding.UTF8);
+        System.IO.File.AppendAllText(filePath,  content + "\n", Encoding.UTF8);
     }
 
     // Видалення з файлу
@@ -149,6 +164,13 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
+
+    public IActionResult Game()
+    {
+        return View();
+    }
+
+
 
     public IActionResult Index()
     {
