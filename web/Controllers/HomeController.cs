@@ -10,6 +10,23 @@ namespace web.Controllers;
 
 public class HomeController : Controller
 {
+
+    private readonly string _statFilePath = "stat/stat.txt"; // Path to your stat file
+
+    public IActionResult Stats()
+    {
+        // Read the stat.txt file
+        var learnedWords = System.IO.File.ReadAllLines(_statFilePath).Where(line => !string.IsNullOrWhiteSpace(line)).Count();
+        int totalWords = 20; // Total number of words
+        int learnedPercentage = (learnedWords * 100) / totalWords;
+        int remainingPercentage = 100 - learnedPercentage;
+
+        // Pass the data to the view using ViewBag
+        ViewBag.LearnedPercentage = learnedPercentage;
+        ViewBag.RemainingPercentage = remainingPercentage;
+
+        return View("Stats");
+    }
     private readonly string _basePath = "assets/";
     private readonly string _basePathStat = "stat/";
 
@@ -93,12 +110,6 @@ public class HomeController : Controller
             DeleteFromFile("fruits.txt", fruitToDelete);
         }
         return RedirectToAction("Fruits");
-    }
-
-    public IActionResult Stats()
-    {
-        var data = ReadStat("stat.txt");
-        return View("Weather", data);
     }
 
 
