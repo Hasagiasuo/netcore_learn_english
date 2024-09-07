@@ -10,7 +10,7 @@ namespace Telebot {
     private static StreamReader rd;
     private static TelegramBotClient _bot;
     public async static Task Main() {
-      _bot =  new TelegramBotClient("7505959570:AAEa2MtBT3f579qcsyqOTQcQ2AsYK5TqCGg");
+      _bot =  new TelegramBotClient("<TOKEN>");
       await _bot.DeleteWebhookAsync();
       _bot.StartReceiving(EventHandler, ErrorHandler);
       Console.WriteLine("INFO: Bot starting..\nPress any key for closing");
