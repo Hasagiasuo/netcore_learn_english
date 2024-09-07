@@ -1,6 +1,4 @@
 Cat
-Dog
-Bird
-Fish
-Cow
-Horse
+Cat
+Cat
+
