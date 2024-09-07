@@ -11,36 +11,22 @@ namespace web.Controllers;
 public class HomeController : Controller
 {
 
-<<<<<<< HEAD
     private readonly string _assetsFolderPath = "assets"; 
     private readonly string _statFilePath = "stat/stat.txt";
 
     public IActionResult Stats()
     {
         
-=======
-    private readonly string _assetsFolderPath = "assets"; // ���� �� ����� assets
-    private readonly string _statFilePath = "stat/stat.txt"; // ���� �� stat.txt
-
-    public IActionResult Stats()
-    {
-        // ϳ��������� ������� ����� � ��� ������ ����� assets
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
         var totalWords = Directory.GetFiles(_assetsFolderPath, "*.txt")
                                   .SelectMany(file => System.IO.File.ReadAllLines(file))
                                   .Where(line => !string.IsNullOrWhiteSpace(line))
                                   .Count();
 
-<<<<<<< HEAD
         
-=======
-        // ������ ������� �������� ��� � stat.txt
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
         var learnedWords = System.IO.File.ReadAllLines(_statFilePath)
                                          .Where(line => !string.IsNullOrWhiteSpace(line))
                                          .Count();
 
-<<<<<<< HEAD
         
         int learnedPercentage = (totalWords > 0) ? (learnedWords * 100) / totalWords : 0;
         int remainingPercentage = 100 - learnedPercentage;
@@ -49,16 +35,6 @@ public class HomeController : Controller
         ViewBag.LearnedPercentage = learnedPercentage;
         ViewBag.RemainingPercentage = remainingPercentage;
         ViewBag.TotalWords = totalWords; 
-=======
-        // ���������� �������
-        int learnedPercentage = (totalWords > 0) ? (learnedWords * 100) / totalWords : 0;
-        int remainingPercentage = 100 - learnedPercentage;
-
-        // �������� ���� �� View
-        ViewBag.LearnedPercentage = learnedPercentage;
-        ViewBag.RemainingPercentage = remainingPercentage;
-        ViewBag.TotalWords = totalWords; // ����� �������� �������� ������� ��� �����������
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
 
         return View("Stats");
     }
@@ -73,22 +49,14 @@ public class HomeController : Controller
     private readonly string _basePath = "assets/";
     private readonly string _basePathStat = "stat/";
 
-<<<<<<< HEAD
     
-=======
-    // ����� ��� ��������� ����� Animals
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
     public IActionResult Animals()
     {
         var data = ReadFile("animals.txt");
         return View("Animals", data);
     }
 
-<<<<<<< HEAD
     
-=======
-    // ����� ��� ��������� ������ � Animals
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
     [HttpPost]
     public IActionResult AddAnimal(string newAnimal)
     {
@@ -99,11 +67,7 @@ public class HomeController : Controller
         return RedirectToAction("Animals");
     }
 
-<<<<<<< HEAD
     
-=======
-    // ����� ��� ��������� ������ � Animals
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
     [HttpPost]
     public IActionResult DeleteAnimal(string animalToDelete)
     {
@@ -114,11 +78,7 @@ public class HomeController : Controller
         return RedirectToAction("Animals");
     }
 
-<<<<<<< HEAD
     
-=======
-    // ������ ��� ����� �������� (Colors, Fruits, Weather)
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
     public IActionResult Colors()
     {
         var data = ReadFile("colors.txt");
@@ -198,11 +158,7 @@ public class HomeController : Controller
         return RedirectToAction("Weather");
     }
 
-<<<<<<< HEAD
    
-=======
-    // ������� �����
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
     private string[] ReadFile(string fileName)
     {
         var filePath = Path.Combine(_basePath, fileName);
@@ -216,22 +172,14 @@ public class HomeController : Controller
         return System.IO.File.ReadAllLines(filePath, Encoding.UTF8);
     }
 
-<<<<<<< HEAD
     
-=======
-    // ��������� � ����
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
     private void AppendToFile(string fileName, string content)
     {
         var filePath = Path.Combine(_basePath, fileName);
         System.IO.File.AppendAllText(filePath,  content + "\n", Encoding.UTF8);
     }
 
-<<<<<<< HEAD
     
-=======
-    // ��������� � �����
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
     private void DeleteFromFile(string fileName, string content)
     {
         var filePath = Path.Combine(_basePath, fileName);
@@ -249,7 +197,7 @@ public class HomeController : Controller
 
     public IActionResult Game()
     {
-        return View("Game", "apppple");
+        return View();
     }
 
 

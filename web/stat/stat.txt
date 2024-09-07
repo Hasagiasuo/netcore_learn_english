@@ -1,10 +1,17 @@
-<<<<<<< HEAD
-Apple
-Orange
 Cat
-=======
+Dog
+Bird
+Sun
+Rain
+Snow
+Wind
+Cloud
+Fog
+Storm
 Cat
-Cat
-Cat
-
->>>>>>> 2a1eeeb3aac87e8cc804c415ec364b9040648adc
+Dog
+Bird
+Fish
+Cow
+Horse
+Sheep

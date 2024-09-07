@@ -3,3 +3,5 @@ Dog|Собака
 Bird|Птах
 Fish|Риба
 Cow|Корова
+Horse|Кінь
+Sheep|Вівця
