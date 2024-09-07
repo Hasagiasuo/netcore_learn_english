@@ -1,41 +1,5 @@
-<<<<<<< HEAD
-Cat
-Cat
-Cat
-Cat
-Cat
-Cat
-Cat
-Cat
-Dog
-Bird
-Cat
-Dog
-Bird
-Fish
-Sun
-Rain
-Cat
-Dog
-Bird
-Red
-Blue
-Green
-Yellow
-Black
-Sun
-Rain
-Snow
-Wind
-Cloud
-Apple
-Banana
-Orange
-Grape
-Cat
-Cat
-=======
 3/2
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 94ab69370ad1e7e9972b6a493d2c21cfae39fcd7
 =======
@@ -44,3 +8,8 @@ Cat
 Sun
 Rain
 Snow
+=======
+>>>>>>> 3e6a6e7126d94299316a7485158c799f998a37d9
+Red
+Blue
+Green
