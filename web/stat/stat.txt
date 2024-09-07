@@ -41,3 +41,6 @@ Cat
 =======
 ôâ³ô³âô³â
 >>>>>>> 24ed7dda022da9b1b83fda21cde120b3ee7524a6
+Sun
+Rain
+Snow
