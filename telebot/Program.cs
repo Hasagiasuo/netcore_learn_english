@@ -121,7 +121,7 @@ namespace Telebot {
         {
           new InlineKeyboardButton[]
           {
-            InlineKeyboardButton.WithUrl("Практика", "https://79fe-77-47-238-26.ngrok-free.app/home/Game"),
+            InlineKeyboardButton.WithUrl("Практика", "https://a65a-77-47-238-26.ngrok-free.app/home/Game"),
             InlineKeyboardButton.WithCallbackData("Наступне", "next")
           },
           new InlineKeyboardButton[] 
@@ -133,6 +133,10 @@ namespace Telebot {
       return tmp_k;
     }
     private static async void sendNext(CallbackQuery callbackQuery) {
+      if(rd == null) {
+        SendCategorySelection(callbackQuery.Message.Chat.Id, "Ви не обрали категорію \U0001F614");
+        return;
+      }
       string line = await rd.ReadLineAsync() ?? "";
       if(line != "") {
         string[] de_line = line.Split("|");
@@ -142,13 +146,18 @@ namespace Telebot {
             if(l.Split("|")[0] == de_line[0]) sendNext(callbackQuery);
           }
         }
+        using(var cur_w = new StreamWriter("../web/curr/current_word.txt")) { await cur_w.WriteAsync(de_line[0]); }
         using(var sw = new StreamWriter("../web/stat/stat.txt", true)) { await sw.WriteLineAsync(de_line[0]); }
-        await using Stream stream = System.IO.File.OpenRead($"../web/img/{de_line[0].ToLower()}.jfif");
-        await _bot.SendPhotoAsync(
-          callbackQuery.Message.Chat.Id, 
-          InputFile.FromStream(stream), 
-          caption: $"{de_line[0]}\n{de_line[1]}", 
-          replyMarkup: gen_keyboard());
+        if(System.IO.File.Exists($"../web/img/{de_line[0].ToLower()}.jfif")) {
+          await using Stream stream = System.IO.File.OpenRead($"../web/img/{de_line[0].ToLower()}.jfif");
+          await _bot.SendPhotoAsync(
+            callbackQuery.Message.Chat.Id, 
+            InputFile.FromStream(stream), 
+            caption: $"{de_line[0]}\n{de_line[1]}", 
+            replyMarkup: gen_keyboard());
+        } else {
+          await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, $"Зображення відсутнє \U0001F915\n{de_line[0]}\n{de_line[1]}", replyMarkup: gen_keyboard());
+        }
       } else {
         SendCategorySelection(callbackQuery.Message.Chat.Id, $"Схоже ви вивчили всі можливі слова цієї категорії \U0001F914");
       }

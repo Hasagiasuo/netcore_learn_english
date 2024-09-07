@@ -13,30 +13,38 @@ public class HomeController : Controller
 
     private readonly string _assetsFolderPath = "assets"; 
     private readonly string _statFilePath = "stat/stat.txt";
+    private readonly string _logFilePath = "stat/stat.txt";   
 
     public IActionResult Stats()
     {
-        
-        var totalWords = Directory.GetFiles(_assetsFolderPath, "*.txt")
-                                  .SelectMany(file => System.IO.File.ReadAllLines(file))
-                                  .Where(line => !string.IsNullOrWhiteSpace(line))
-                                  .Count();
-
         
         var learnedWords = System.IO.File.ReadAllLines(_statFilePath)
                                          .Where(line => !string.IsNullOrWhiteSpace(line))
                                          .Count();
 
+       
+        var lastActions = System.IO.File.ReadAllLines(_logFilePath)
+                                        .Where(line => !string.IsNullOrWhiteSpace(line))
+                                        .TakeLast(5)
+                                        .ToList(); 
+
         
-        int learnedPercentage = (totalWords > 0) ? (learnedWords * 100) / totalWords : 0;
-        int remainingPercentage = 100 - learnedPercentage;
+        int learnedPercentage = (learnedWords * 100) / 20;  
 
         
         ViewBag.LearnedPercentage = learnedPercentage;
-        ViewBag.RemainingPercentage = remainingPercentage;
-        ViewBag.TotalWords = totalWords; 
+        ViewBag.RemainingPercentage = 100 - learnedPercentage;
+        ViewBag.LastActions = lastActions;
 
-        return View("Stats");
+        return View();
+    }
+
+    
+    private void LogAction(string action)
+    {
+        
+        string logMessage = $"{DateTime.Now}: {action}";
+        System.IO.File.AppendAllText(_logFilePath, logMessage + Environment.NewLine);
     }
 
     
@@ -44,8 +52,40 @@ public class HomeController : Controller
     public IActionResult ResetDatabase()
     {
         System.IO.File.WriteAllText(_statFilePath, string.Empty); 
-        return RedirectToAction("Stats"); 
+
+       
+        LogAction("Database reset.");
+
+        return RedirectToAction("Stats");
     }
+
+    
+    [HttpPost]
+    public IActionResult AddWord(string newWord)
+    {
+        System.IO.File.AppendAllText(_statFilePath, newWord + Environment.NewLine); 
+
+        
+        LogAction($"Added word: {newWord}");
+
+        return RedirectToAction("Stats");
+    }
+
+    [HttpPost]
+    public IActionResult DeleteWord(string word)
+    {
+        var allWords = System.IO.File.ReadAllLines(_statFilePath).ToList();
+        allWords.Remove(word); 
+        System.IO.File.WriteAllLines(_statFilePath, allWords); 
+
+       
+        LogAction($"Deleted word: {word}");
+
+        return RedirectToAction("Stats");
+    }
+
+
+ 
     private readonly string _basePath = "assets/";
     private readonly string _basePathStat = "stat/";
 
