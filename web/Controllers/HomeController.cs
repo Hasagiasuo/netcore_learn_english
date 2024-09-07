@@ -11,44 +11,44 @@ namespace web.Controllers;
 public class HomeController : Controller
 {
 
-    private readonly string _assetsFolderPath = "assets"; // Шлях до папки assets
-    private readonly string _statFilePath = "stat/stat.txt"; // Шлях до stat.txt
+    private readonly string _assetsFolderPath = "assets"; // пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ assets
+    private readonly string _statFilePath = "stat/stat.txt"; // пїЅпїЅпїЅпїЅ пїЅпїЅ stat.txt
 
     public IActionResult Stats()
     {
-        // Підраховуємо кількість рядків у всіх файлах папки assets
+        // ПіпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ assets
         var totalWords = Directory.GetFiles(_assetsFolderPath, "*.txt")
                                   .SelectMany(file => System.IO.File.ReadAllLines(file))
                                   .Where(line => !string.IsNullOrWhiteSpace(line))
                                   .Count();
 
-        // Читаємо кількість вивчених слів зі stat.txt
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ stat.txt
         var learnedWords = System.IO.File.ReadAllLines(_statFilePath)
                                          .Where(line => !string.IsNullOrWhiteSpace(line))
                                          .Count();
 
-        // Розрахунок відсотків
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         int learnedPercentage = (totalWords > 0) ? (learnedWords * 100) / totalWords : 0;
         int remainingPercentage = 100 - learnedPercentage;
 
-        // Передаємо дані до View
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ View
         ViewBag.LearnedPercentage = learnedPercentage;
         ViewBag.RemainingPercentage = remainingPercentage;
-        ViewBag.TotalWords = totalWords; // Можна передати загальну кількість для відображення
+        ViewBag.TotalWords = totalWords; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
         return View("Stats");
     }
     private readonly string _basePath = "assets/";
     private readonly string _basePathStat = "stat/";
 
-    // Метод для перегляду файлу Animals
+    // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ Animals
     public IActionResult Animals()
     {
         var data = ReadFile("animals.txt");
         return View("Animals", data);
     }
 
-    // Метод для додавання запису в Animals
+    // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ Animals
     [HttpPost]
     public IActionResult AddAnimal(string newAnimal)
     {
@@ -59,7 +59,7 @@ public class HomeController : Controller
         return RedirectToAction("Animals");
     }
 
-    // Метод для видалення запису з Animals
+    // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ Animals
     [HttpPost]
     public IActionResult DeleteAnimal(string animalToDelete)
     {
@@ -70,7 +70,7 @@ public class HomeController : Controller
         return RedirectToAction("Animals");
     }
 
-    // Методи для інших категорій (Colors, Fruits, Weather)
+    // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (Colors, Fruits, Weather)
     public IActionResult Colors()
     {
         var data = ReadFile("colors.txt");
@@ -150,7 +150,7 @@ public class HomeController : Controller
         return RedirectToAction("Weather");
     }
 
-    // Читання файлу
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     private string[] ReadFile(string fileName)
     {
         var filePath = Path.Combine(_basePath, fileName);
@@ -164,14 +164,14 @@ public class HomeController : Controller
         return System.IO.File.ReadAllLines(filePath, Encoding.UTF8);
     }
 
-    // Додавання в файл
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
     private void AppendToFile(string fileName, string content)
     {
         var filePath = Path.Combine(_basePath, fileName);
         System.IO.File.AppendAllText(filePath,  content + "\n", Encoding.UTF8);
     }
 
-    // Видалення з файлу
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
     private void DeleteFromFile(string fileName, string content)
     {
         var filePath = Path.Combine(_basePath, fileName);
@@ -189,7 +189,7 @@ public class HomeController : Controller
 
     public IActionResult Game()
     {
-        return View();
+        return View("Game", "apppple");
     }
 
 
