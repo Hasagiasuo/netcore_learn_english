@@ -2,6 +2,7 @@
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 using Telegram.Bot.Types.Enums;
+using System.IO;
 
 namespace Telebot {
   public class TelebotMN() {
@@ -93,12 +94,18 @@ namespace Telebot {
     }
     private static async void HandleColorsCategory(CallbackQuery callbackQuery) {
       await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Кольори 🌈");
+      rd = new StreamReader("../web/assets/colors.txt");
+      sendNext(callbackQuery);
     }
     private static async void HandleFruitsCategory(CallbackQuery callbackQuery) {
       await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Фрукти 🍎");
+      rd = new StreamReader("../web/assets/fruits.txt");
+      sendNext(callbackQuery);
     }
     private static async void HandleWeatherCategory(CallbackQuery callbackQuery) {
       await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Ви вибрали категорію: Погода ☀️");
+      rd = new StreamReader("../web/assets/weather.txt");
+      sendNext(callbackQuery);
     }
     private static async void HandleNext(CallbackQuery callbackQuery) {
       sendNext(callbackQuery);
@@ -116,11 +123,16 @@ namespace Telebot {
       );
       return tmp_k;
     }
-    public static async void sendNext(CallbackQuery callbackQuery) {
+    private static async void sendNext(CallbackQuery callbackQuery) {
       string line = await rd.ReadLineAsync() ?? "";
       if(line != "") {
         string[] de_line = line.Split("|");
-        await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, $"{de_line[0]}\n{de_line[1]}", replyMarkup: gen_keyboard());
+        await using Stream stream = System.IO.File.OpenRead($"../web/img/{de_line[0]}.jfif");
+        await _bot.SendPhotoAsync(
+          callbackQuery.Message.Chat.Id, 
+          InputFile.FromStream(stream), 
+          caption: $"{de_line[0]}\n{de_line[1]}", 
+          replyMarkup: gen_keyboard());
       } else {
         await _bot.SendTextMessageAsync(callbackQuery.Message.Chat.Id, $"Схоже ви вивчили всі можливі слова \U0001F914");
       }
