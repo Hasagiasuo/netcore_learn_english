@@ -6782,24 +6782,31 @@
     ]
   },
   "packageFolders": {
-    "/Users/dmitro/.nuget/packages/": {}
+    "C:\\Users\\Валера ноут\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/dmitro/data/Code/hackador4/web/web.csproj",
+      "projectUniqueName": "C:\\Users\\Валера ноут\\Desktop\\netcore_eng\\netcore_learn_english\\web\\web.csproj",
       "projectName": "web",
-      "projectPath": "/Users/dmitro/data/Code/hackador4/web/web.csproj",
-      "packagesPath": "/Users/dmitro/.nuget/packages/",
-      "outputPath": "/Users/dmitro/data/Code/hackador4/web/obj/",
+      "projectPath": "C:\\Users\\Валера ноут\\Desktop\\netcore_eng\\netcore_learn_english\\web\\web.csproj",
+      "packagesPath": "C:\\Users\\Валера ноут\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Валера ноут\\Desktop\\netcore_eng\\netcore_learn_english\\web\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/dmitro/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Валера ноут\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6812,7 +6819,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -6854,8 +6867,30 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Formats.Asn1' 6.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-447r-wph3-92pm",
+      "libraryId": "System.Formats.Asn1",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Text.Json' 8.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-8g4q-xg66-9fp4",
+      "libraryId": "System.Text.Json",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
