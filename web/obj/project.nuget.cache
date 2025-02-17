@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vaalSrWXJuE=",
+  "dgSpecHash": "E3T9NnY0tCE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Валера ноут\\Desktop\\netcore_eng\\netcore_learn_english\\web\\web.csproj",
+  "projectFilePath": "D:\\mtp\\dotnetEng\\netcore_learn_english\\web\\web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Валера ноут\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Валера ноут\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
