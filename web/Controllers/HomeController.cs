@@ -1,257 +1,143 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using web.Models;
-using System.IO;
-using System.Threading.Tasks;
+using web.Data;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace web.Controllers;
 
 public class HomeController : Controller
 {
-
-    private readonly string _assetsFolderPath = "assets"; 
-    private readonly string _statFilePath = "stat/stat.txt";
-    private readonly string _logFilePath = "stat/stat.txt";   
-
-    public IActionResult Stats()
-    {
-        
-        var learnedWords = System.IO.File.ReadAllLines(_statFilePath)
-                                         .Where(line => !string.IsNullOrWhiteSpace(line))
-                                         .Count();
-
-       
-        var lastActions = System.IO.File.ReadAllLines(_logFilePath)
-                                        .Where(line => !string.IsNullOrWhiteSpace(line))
-                                        .TakeLast(5)
-                                        .ToList(); 
-
-        
-        int learnedPercentage = (learnedWords * 100) / 20;  
-
-        
-        ViewBag.LearnedPercentage = learnedPercentage;
-        ViewBag.RemainingPercentage = 100 - learnedPercentage;
-        ViewBag.LastActions = lastActions;
-
-        return View();
-    }
-
-    
-    private void LogAction(string action)
-    {
-        
-        string logMessage = $"{DateTime.Now}: {action}";
-        System.IO.File.AppendAllText(_logFilePath, logMessage + Environment.NewLine);
-    }
-
-    
-    [HttpPost]
-    public IActionResult ResetDatabase()
-    {
-        System.IO.File.WriteAllText(_statFilePath, string.Empty); 
-
-       
-        LogAction("Database reset.");
-
-        return RedirectToAction("Stats");
-    }
-
-    
-    [HttpPost]
-    public IActionResult AddWord(string newWord)
-    {
-        System.IO.File.AppendAllText(_statFilePath, newWord + Environment.NewLine); 
-
-        
-        LogAction($"Added word: {newWord}");
-
-        return RedirectToAction("Stats");
-    }
-
-    [HttpPost]
-    public IActionResult DeleteWord(string word)
-    {
-        var allWords = System.IO.File.ReadAllLines(_statFilePath).ToList();
-        allWords.Remove(word); 
-        System.IO.File.WriteAllLines(_statFilePath, allWords); 
-
-       
-        LogAction($"Deleted word: {word}");
-
-        return RedirectToAction("Stats");
-    }
-
-
- 
-    private readonly string _basePath = "assets/";
-    private readonly string _basePathStat = "stat/";
-
-    
-    public IActionResult Animals()
-    {
-        var data = ReadFile("animals.txt");
-        return View("Animals", data);
-    }
-
-    
-    [HttpPost]
-    public IActionResult AddAnimal(string newAnimal)
-    {
-        if (!string.IsNullOrEmpty(newAnimal))
-        {
-            AppendToFile("animals.txt", newAnimal);
-        }
-        return RedirectToAction("Animals");
-    }
-
-    
-    [HttpPost]
-    public IActionResult DeleteAnimal(string animalToDelete)
-    {
-        if (!string.IsNullOrEmpty(animalToDelete))
-        {
-            DeleteFromFile("animals.txt", animalToDelete);
-        }
-        return RedirectToAction("Animals");
-    }
-
-    
-    public IActionResult Colors()
-    {
-        var data = ReadFile("colors.txt");
-        return View("Colors", data);
-    }
-
-    [HttpPost]
-    public IActionResult AddColor(string newColor)
-    {
-        if (!string.IsNullOrEmpty(newColor))
-        {
-            AppendToFile("colors.txt", newColor);
-        }
-        return RedirectToAction("Colors");
-    }
-
-    [HttpPost]
-    public IActionResult DeleteColor(string colorToDelete)
-    {
-        if (!string.IsNullOrEmpty(colorToDelete))
-        {
-            DeleteFromFile("colors.txt", colorToDelete);
-        }
-        return RedirectToAction("Colors");
-    }
-
-    public IActionResult Fruits()
-    {
-        var data = ReadFile("fruits.txt");
-        return View("Fruits", data);
-    }
-
-    [HttpPost]
-    public IActionResult AddFruit(string newFruit)
-    {
-        if (!string.IsNullOrEmpty(newFruit))
-        {
-            AppendToFile("fruits.txt", newFruit);
-        }
-        return RedirectToAction("Fruits");
-    }
-
-    [HttpPost]
-    public IActionResult DeleteFruit(string fruitToDelete)
-    {
-        if (!string.IsNullOrEmpty(fruitToDelete))
-        {
-            DeleteFromFile("fruits.txt", fruitToDelete);
-        }
-        return RedirectToAction("Fruits");
-    }
-
-
-    public IActionResult Weather()
-    {
-        var data = ReadFile("weather.txt");
-        return View("Weather", data);
-    }
-
-    [HttpPost]
-    public IActionResult AddWeather(string newWeather)
-    {
-        if (!string.IsNullOrEmpty(newWeather))
-        {
-            AppendToFile("weather.txt", newWeather);
-        }
-        return RedirectToAction("Weather");
-    }
-
-    [HttpPost]
-    public IActionResult DeleteWeather(string weatherToDelete)
-    {
-        if (!string.IsNullOrEmpty(weatherToDelete))
-        {
-            DeleteFromFile("weather.txt", weatherToDelete);
-        }
-        return RedirectToAction("Weather");
-    }
-
-   
-    private string[] ReadFile(string fileName)
-    {
-        var filePath = Path.Combine(_basePath, fileName);
-        return System.IO.File.ReadAllLines(filePath, Encoding.UTF8);
-    }
-
-
-    private string[] ReadStat(string fileName)
-    {
-        var filePath = Path.Combine(_basePathStat, fileName);
-        return System.IO.File.ReadAllLines(filePath, Encoding.UTF8);
-    }
-
-    
-    private void AppendToFile(string fileName, string content)
-    {
-        var filePath = Path.Combine(_basePath, fileName);
-        System.IO.File.AppendAllText(filePath,  content + "\n", Encoding.UTF8);
-    }
-
-    
-    private void DeleteFromFile(string fileName, string content)
-    {
-        var filePath = Path.Combine(_basePath, fileName);
-        var lines = System.IO.File.ReadAllLines(filePath).ToList();
-        lines.Remove(content);
-        System.IO.File.WriteAllLines(filePath, lines, Encoding.UTF8);
-    }
-
+    private readonly ApplicationDbContext _context;
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ApplicationDbContext context, ILogger<HomeController> logger)
     {
+        _context = context;
         _logger = logger;
     }
-// /Users/dmitro/data/Code/hackador4/web/curr/current_word.txt
-    public IActionResult Game()
+    [HttpPost]
+    public async Task<IActionResult> ResetDatabase()
     {
-        string target;
-        using(var wr = new StreamReader("./curr/current_word.txt")) {
-            target = wr.ReadLine() ?? "DOTNET";
+        _context.Words.RemoveRange(_context.Words);
+        await _context.SaveChangesAsync();
+
+
+        return RedirectToAction("Index");
+    }
+    [HttpPost]
+    public async Task<IActionResult> AddWord(string newWord, string ukrainianWord, string category, IFormFile image)
+    {
+        if (string.IsNullOrWhiteSpace(newWord) || string.IsNullOrWhiteSpace(ukrainianWord) || image == null)
+        {
+            ModelState.AddModelError("", "Усі поля обов'язкові.");
+            return View();
         }
-        return View("Game", target);
+
+        byte[] imageData;
+        using (var memoryStream = new MemoryStream())
+        {
+            await image.CopyToAsync(memoryStream);
+            imageData = memoryStream.ToArray();
+        }
+
+        var word = new Word
+        {
+            English = newWord,
+            Ukrainian = ukrainianWord,
+            Category = category,
+            Image = imageData
+        };
+
+        _context.Words.Add(word);
+        await _context.SaveChangesAsync();
+
+
+        return RedirectToAction("Index");
     }
 
+    [HttpPost]
+    public async Task<IActionResult> DeleteWord(string word)
+    {
+        var wordToDelete = await _context.Words
+            .FirstOrDefaultAsync(w => w.English == word);
+
+        if (wordToDelete != null)
+        {
+            _context.Words.Remove(wordToDelete);
+            await _context.SaveChangesAsync();
+
+        }
+
+        return RedirectToAction("Stats");
+    }
+    public async Task<IActionResult> GetWordsByCategory(string category)
+    {
+        var words = await _context.Words
+            .Where(w => w.Category == category)
+            .ToListAsync();
+
+        foreach (var word in words)
+        {
+            if (word.Image != null)
+            {
+                var base64Image = $"data:image/png;base64,{Convert.ToBase64String(word.Image)}";
+                ViewData[$"Image_{word.Id}"] = base64Image;
+            }
+            else
+            {
+                ViewData[$"Image_{word.Id}"] = null;
+            }
+        }
+
+        ViewData["Category"] = category;
+
+        return View(words);
+    }
 
     [HttpPost]
-    public async Task<IActionResult> UploadFile(IFormFile file)
+    public async Task<IActionResult> AddWordToCategory(string newWord, string category)
+    {
+        if (!string.IsNullOrEmpty(newWord))
+        {
+            var word = new Word
+            {
+                English = newWord,
+                Category = category,
+                Ukrainian = "Переклад не вказано"
+            };
+
+            _context.Words.Add(word);
+            await _context.SaveChangesAsync();
+
+        }
+
+        return RedirectToAction("GetWordsByCategory", new { category });
+    }
+    [HttpPost]
+    public async Task<IActionResult> DeleteWordFromCategory(string word, string category)
+    {
+        var wordToDelete = await _context.Words
+            .FirstOrDefaultAsync(w => w.English == word && w.Category == category);
+
+        if (wordToDelete != null)
+        {
+            _context.Words.Remove(wordToDelete);
+            await _context.SaveChangesAsync();
+        }
+        return RedirectToAction("GetWordsByCategory", new { category });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> UploadFile(IFormFile file, int wordId)
     {
         if (file != null && file.Length > 0)
         {
-            // Validate file type
-            var allowedExtensions = new[] { ".jfif"};
+            var allowedExtensions = new[] { ".jfif", ".jpg", ".png" };
             var fileExtension = Path.GetExtension(file.FileName).ToLower();
 
             if (!allowedExtensions.Contains(fileExtension))
@@ -260,24 +146,19 @@ public class HomeController : Controller
                 return View("Index");
             }
 
-            // Define the file path
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "img", file.FileName);
-
-            try
+            using (var memoryStream = new MemoryStream())
             {
-                // Save the file
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                await file.CopyToAsync(memoryStream);
+                var word = await _context.Words.FindAsync(wordId);
+
+                if (word != null)
                 {
-                    await file.CopyToAsync(stream);
+                    word.Image = memoryStream.ToArray();
+                    await _context.SaveChangesAsync();
                 }
+            }
 
-                ViewBag.Message = "File uploaded successfully!";
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions
-                ViewBag.Message = $"File upload failed: {ex.Message}";
-            }
+            ViewBag.Message = "File uploaded successfully!";
         }
         else
         {
@@ -286,13 +167,15 @@ public class HomeController : Controller
 
         return View("Index");
     }
-
-
     public IActionResult Index()
     {
         return View();
     }
-
+    public IActionResult AddWord()
+    {
+        return View();
+    }
+    // Сторінка помилки
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

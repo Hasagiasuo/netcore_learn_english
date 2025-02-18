@@ -1,0 +1,55 @@
+@model List<web.Models.Word>
+
+@{
+    ViewData["Title"] = "Слова в категорії";
+}
+
+<h2>Слова в категорії</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">
+        Немає слів у цій категорії.
+    </div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Слово (Англійською)</th>
+                <th>Переклад (Українською)</th>
+                <th>Зображення</th>
+                <th>Дії</th> <!-- Додано стовпець для кнопки видалення -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var word in Model)
+            {
+                <tr>
+                    <td>@word.English</td>
+                    <td>@word.Ukrainian</td>
+                    <td>
+                        @if (ViewData[$"Image_{word.Id}"] != null)
+                        {
+                            <img src="@ViewData[$"Image_{word.Id}"]" alt="@word.English" style="width: 100px; height: auto;">
+                        }
+                        else
+                        {
+                            <span>Зображення відсутнє</span>
+                        }
+                    </td>
+                    <td>
+                        <form asp-action="DeleteWordFromCategory" method="post" style="display:inline;">
+                            <input type="hidden" name="word" value="@word.English" />
+                            <input type="hidden" name="category" value="@ViewData["Category"]" />
+                            <button type="submit" class="btn btn-danger btn-sm">Видалити</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-action="Index" class="btn btn-secondary">На головну</a>

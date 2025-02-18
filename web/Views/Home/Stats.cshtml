@@ -1,55 +1,31 @@
 ﻿@{
-    ViewData["Title"] = "Stats";
+    ViewData["Title"] = "Статистика";
 }
 
-<h2>Word Learning Stats</h2>
+<h2>Статистика</h2>
 
-
-<div style="width: 300px; height: 300px;">
-    <canvas id="myPieChart"></canvas>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: @ViewBag.LearnedPercentage%;" aria-valuenow="@ViewBag.LearnedPercentage" aria-valuemin="0" aria-valuemax="100">
+        @ViewBag.LearnedPercentage%
+    </div>
 </div>
 
+<p>Вивчено слів: @ViewBag.LearnedPercentage%</p>
+<p>Залишилося: @ViewBag.RemainingPercentage%</p>
 
-<h4>Learned words</h4>
-<ul>
-    @foreach (var action in ViewBag.LastActions)
-    {
-        <li>@action</li>
-    }
-</ul>
-
-
-<form asp-action="ResetDatabase" method="post">
-    <button type="submit" class="btn btn-danger mt-3">Reset Database</button>
-</form>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    var ctx = document.getElementById('myPieChart').getContext('2d');
-    var myPieChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Learned Words', 'Remaining Words'],
-            datasets: [{
-                data: [@ViewBag.LearnedPercentage, @ViewBag.RemainingPercentage],
-                backgroundColor: ['#33FF57', '#FF5733'], 
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function (tooltipItem) {
-                            return tooltipItem.label + ': ' + tooltipItem.raw + '%';
-                        }
-                    }
-                }
-            }
+<h3>Останні дії:</h3>
+@if (ViewBag.LastActions != null && ViewBag.LastActions.Any())
+{
+    <ul>
+        @foreach (var action in ViewBag.LastActions)
+        {
+            <li>@action</li>
         }
-    });
-</script>
+    </ul>
+}
+else
+{
+    <p>Немає записаних дій.</p>
+}
+
+<a asp-action="Index" class="btn btn-secondary">На головну</a>

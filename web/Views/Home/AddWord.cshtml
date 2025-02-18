@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Додати слово";
+}
+
+<h2>Додати нове слово</h2>
+
+<form asp-action="AddWord" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="newWord">Слово (англійською):</label>
+        <input type="text" id="newWord" name="newWord" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="ukrainianWord">Слово (українською):</label>
+        <input type="text" id="ukrainianWord" name="ukrainianWord" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="category">Категорія:</label>
+        <select id="category" name="category" class="form-control" required>
+            <option value="Animals">Тварини</option>
+            <option value="Colors">Кольори</option>
+            <option value="Fruits">Фрукти</option>
+            <option value="Weather">Погода</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="image">Зображення:</label>
+        <input type="file" id="image" name="image" class="form-control-file" accept="image/*" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Додати</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary">На головну</a>
