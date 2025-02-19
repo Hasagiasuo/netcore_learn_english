@@ -12,8 +12,6 @@ namespace web.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // Можеш додати обмеження, якщо потрібно
             modelBuilder.Entity<Word>()
                 .Property(w => w.English)
                 .HasMaxLength(50)
